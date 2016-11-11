@@ -141,6 +141,11 @@ app.get('/check-login',function(req,res){
     }
 });
 
+app.get('/logout',function(req,res){
+    delete req.session.auth;
+    res.send("Logged out");
+})
+
 // create the pool somewhere globally so its lifetime
 // lasts for as long as your app is running
 var pool = new Pool(config);
